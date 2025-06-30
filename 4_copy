@@ -1,0 +1,18 @@
+#!/bin/bash
+
+sudo rm /usr/local/share/ca-certificates/cacert.crt
+sudo rm /etc/ssl/certs/cacert.pem
+sudo cp cacert.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+
+mkdir -p /etc/sssd/pki/
+sudo rm /etc/sssd/pki/sssd_auth_ca_db.pem
+sudo touch /etc/sssd/pki/sssd_auth_ca_db.pem
+cat cacert.crt | sudo tee -a /etc/sssd/pki/sssd_auth_ca_db.pem
+
+openssl verify -verbose card-cert.pem
+openssl verify -verbose -CAfile /etc/sssd/pki/sssd_auth_ca_db.pem card-cert.pem
+
+systemctl restart sssd
+
+sudo dbus-send --system --print-reply --dest=org.freedesktop.sssd.infopipe /org/freedesktop/sssd/infopipe/Users org.freedesktop.sssd.infopipe.Users.ListByCertificate string:"$(cat card-cert.pem)" uint32:10

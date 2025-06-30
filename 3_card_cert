@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pkcs15-tool --read-certificate 1 > card-cert.pem
+openssl x509 -text -noout -in card-cert.pem
+
+openssl x509 -in certnew.cer -out cacert.crt -outform pem

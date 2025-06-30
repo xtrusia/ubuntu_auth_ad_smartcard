@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ykman piv reset -f
+yubico-piv-tool -a generate -s 9a -A RSA2048
+#yubico-piv-tool -a generate -s 9a -A RSA2048 -o seyeongkim.key
+#yubico-piv-tool -a verify-pin --pin=123456 -a request-certificate -s 9a -S '/CN=Seyeong/OU=Users/DC=kim/DC=seyeong/' -i seyeongkim.key -o seyeongkim.csr
+
+export PKCS11_MODULE_PATH=/usr/lib/x86_64-linux-gnu/libykcs11.so
+
+openssl req  -engine pkcs11 -keyform engine   -new   -key "pkcs11:object=Private key for PIV Authentication;type=private;pin-value=123456"   -config openssl.cnf -reqexts v3_req   -out seyeongkim.csr -multivalue-rdn
+
+cat seyeongkim.csr
+#openssl req -new -key seyeongkim.key -out seyeongkim.csr -config openssl.cnf -reqexts v3_req
+
+# /CN=Fabio Martins/OU=Users/O=fabiomirmar.net/
+# CN=Seyeong Kim,CN=Users,DC=seyeong,DC=kim

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+openssl x509 -in seyeongkim.cer -out seyeongkimissued.pem -outform pem
+
+cat seyeongkimissued.pem |  openssl x509 -text -noout
+
+yubico-piv-tool -a import-certificate -s 9a -i seyeongkimissued.pem
+
+
