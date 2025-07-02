@@ -25,7 +25,7 @@ Install-AdcsWebEnrollment -Force
 
 # Ubuntu
 
-## Instalations
+## Installations
 ```
 sudo apt install libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools sssd-ad realmd adcli
 sudo add-apt-repository ppa:yubico/stable && sudo apt-get update
