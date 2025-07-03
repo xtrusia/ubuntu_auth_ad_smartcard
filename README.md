@@ -27,11 +27,8 @@ Install-AdcsWebEnrollment -Force
 
 ## Installations
 ```
-sudo apt install libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools sssd-ad realmd adcli
 sudo add-apt-repository ppa:yubico/stable && sudo apt-get update
-sudo apt upgrade -y && sudo apt install libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools yubico-piv-tool -y
-sudo apt install libengine-pkcs11-openssl libp11-3 opensc libssl-dev -y
-sudo apt install yubikey-manager ykcs11 -y
+sudo apt install libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools sssd-ad realmd adcli libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools yubico-piv-tool libengine-pkcs11-openssl libp11-3 opensc libssl-dev yubikey-manager ykcs11 -y
 ```
 ## Make sure dns relove
 netplan setting.
