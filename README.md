@@ -29,6 +29,9 @@ Install-AdcsWebEnrollment -Force
 ```
 sudo add-apt-repository ppa:yubico/stable && sudo apt-get update
 sudo apt install libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools sssd-ad realmd adcli libpam-sss opensc-pkcs11 pcscd libpam-pkcs11 sssd opensc sssd-dbus sssd-tools yubico-piv-tool libengine-pkcs11-openssl libp11-3 opensc libssl-dev yubikey-manager ykcs11 -y
+
+# later than Oracular
+sudo apt install krb5-pkinit -y
 ```
 ## Make sure dns relove
 netplan setting.
