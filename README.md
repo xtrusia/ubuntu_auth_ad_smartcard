@@ -99,6 +99,6 @@ sudo dbus-send --system --print-reply --dest=org.freedesktop.sssd.infopipe /org/
 /etc/pam.d/common-auth
 /etc/krb5.conf
 
-## test
+# test
 login Seyeong # before Plucky
 su - Seyeong # after Plucky
