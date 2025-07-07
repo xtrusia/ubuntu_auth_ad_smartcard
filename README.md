@@ -100,5 +100,7 @@ sudo dbus-send --system --print-reply --dest=org.freedesktop.sssd.infopipe /org/
 /etc/krb5.conf
 
 # test
+```
 login Seyeong # before Plucky
-su - Seyeong # after Plucky
+su - Seyeong # after Plucky ( login command has issue )
+```
